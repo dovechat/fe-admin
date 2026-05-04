@@ -166,8 +166,8 @@ export default function Lines() {
                 <th>Название</th>
                 <th>Статус</th>
                 <th>Каналы</th>
-                <th>Истекает</th>
                 <th>Создана</th>
+                <th>Истекает</th>
                 <th>Действия</th>
               </tr>
             </thead>
@@ -193,10 +193,10 @@ export default function Lines() {
                     {l.channels?.map(c => c.channel_type).join(', ') || '—'}
                   </td>
                   <td className="mono" style={{ fontSize: 12, color: 'var(--text2)' }}>
-                    {fmtDate(maxExpires(l.channels))}
+                    {fmtDate(l.created_at)}
                   </td>
                   <td className="mono" style={{ fontSize: 12, color: 'var(--text2)' }}>
-                    {fmtDate(l.created_at)}
+                    {fmtDate(maxExpires(l.channels))}
                   </td>
                   <td>
                     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
