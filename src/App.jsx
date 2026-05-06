@@ -9,6 +9,7 @@ import Lines from './components/Lines.jsx';
 import Instances from './components/Instances.jsx';
 import Billing from './components/Billing.jsx';
 import Audit from './components/Audit.jsx';
+import Tariffs from './components/Tariffs.jsx';
 
 /* GUARD */
 function RequireAuth({ children }) {
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="instances"  element={<Instances />} />
           <Route path="billing"    element={<Billing />} />
           <Route path="audit"      element={<Audit />} />
+          <Route path="tariffs"    element={<Tariffs />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/dashboard" replace />} />

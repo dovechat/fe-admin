@@ -71,3 +71,8 @@ export const createAdjustment = (tid, data) =>
 export const getAdminTenants = () => api.get('/billing/tenants').then(r => r.data)
 
 
+/* ── Tariffs ── */
+export const getTariffs = (params) => api.get('/tariffs', { params }).then(r => r.data)
+export const createTariff = (data) => api.post('/tariffs', data).then(r => r.data)
+export const updateTariff = (id, data) => api.patch(`/tariffs/${id}`, data).then(r => r.data)
+export const deleteTariff = (id) => api.delete(`/tariffs/${id}`).then(r => r.data)
