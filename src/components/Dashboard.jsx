@@ -108,8 +108,8 @@ export default function Dashboard() {
                 <th>Время</th>
                 <th>Действие</th>
                 <th>Тип</th>
-                <th>Entity ID</th>
-                <th>IP</th>
+                <th>Объект</th>
+                <th>Админ</th>
               </tr>
             </thead>
             <tbody>
@@ -127,12 +127,8 @@ export default function Dashboard() {
                     <span className={`badge ${auditBadge(row.action)}`}>{row.action}</span>
                   </td>
                   <td style={{ color: 'var(--text2)' }}>{row.entity_type || '—'}</td>
-                  <td className="mono" style={{ fontSize: 11, color: 'var(--text3)' }}>
-                    {row.entity_id ? row.entity_id.slice(0, 8) + '…' : '—'}
-                  </td>
-                  <td className="mono" style={{ fontSize: 11, color: 'var(--text3)' }}>
-                    {row.ip_address || '—'}
-                  </td>
+                  <td style={{ color: 'var(--text2)' }}>{row.entity_name || '—'}</td>
+                  <td style={{ color: 'var(--text2)' }}>{row.user || '—'}</td>
                 </tr>
               ))}
             </tbody>

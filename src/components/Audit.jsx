@@ -88,17 +88,16 @@ export default function Audit() {
                 <th>Время</th>
                 <th>Действие</th>
                 <th>Тип объекта</th>
-                <th>Entity ID</th>
-                <th>User ID</th>
-                <th>IP</th>
+                <th>Сущность</th>
+                <th>Админ</th>
               </tr>
             </thead>
             <tbody>
               {loading && (
-                <tr><td colSpan={6} className="state-empty">Загрузка...</td></tr>
+                <tr><td colSpan={5} className="state-empty">Загрузка...</td></tr>
               )}
               {!loading && items.length === 0 && (
-                <tr><td colSpan={6} className="state-empty">Нет записей</td></tr>
+                <tr><td colSpan={5} className="state-empty">Нет записей</td></tr>
               )}
               {!loading && items.map(row => (
                 <tr key={row.id}>
@@ -109,15 +108,8 @@ export default function Audit() {
                     <span className={`badge ${auditBadge(row.action)}`}>{row.action}</span>
                   </td>
                   <td style={{ color: 'var(--text2)' }}>{row.entity_type || '—'}</td>
-                  <td className="mono" style={{ fontSize: 11, color: 'var(--text3)' }}>
-                    {row.entity_id ? row.entity_id.slice(0, 8) + '…' : '—'}
-                  </td>
-                  <td className="mono" style={{ fontSize: 11, color: 'var(--text3)' }}>
-                    {row.user_id ? row.user_id.toString().slice(0, 8) + '…' : '—'}
-                  </td>
-                  <td className="mono" style={{ fontSize: 11, color: 'var(--text3)' }}>
-                    {row.ip_address || '—'}
-                  </td>
+                  <td style={{ color: 'var(--text2)' }}>{row.entity_name || '—'}</td>
+                  <td style={{ color: 'var(--text2)' }}>{row.user || '—'}</td>
                 </tr>
               ))}
             </tbody>

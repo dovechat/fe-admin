@@ -46,7 +46,7 @@ function EditTariff({ tariff, onSaved, onCancel }) {
               placeholder="Название тарифа"
               required
             />
-            <select name="channel_type" value={values.channel_type} disabled>
+            <select name="channel_type" value={values.channel_type}>
               <option value="telegram_bot">Telegram Bot</option>
               <option value="telegram_user">Telegram User</option>
               <option value="whatsapp_green">WhatsApp Green API</option>

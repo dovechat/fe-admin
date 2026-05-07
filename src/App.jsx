@@ -10,6 +10,7 @@ import Instances from './components/Instances.jsx';
 import Billing from './components/Billing.jsx';
 import Audit from './components/Audit.jsx';
 import Tariffs from './components/Tariffs.jsx';
+import Tenants from './components/Tenants.jsx';
 
 /* GUARD */
 function RequireAuth({ children }) {
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="billing"    element={<Billing />} />
           <Route path="audit"      element={<Audit />} />
           <Route path="tariffs"    element={<Tariffs />} />
+          <Route path="tenants"    element={<Tenants />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/dashboard" replace />} />

@@ -9,6 +9,7 @@ const NAV = [
   { to: '/billing',   label: 'Billing',    icon: '▪' },
   { to: '/audit',     label: 'Audit Log',  icon: '▪' },
   { to: '/tariffs',   label: 'Тарифы',     icon: '▪' },
+  { to: '/tenants',   label: 'Компании',   icon: '▪' },
 ]
 
 export default function Layout({ children }) {

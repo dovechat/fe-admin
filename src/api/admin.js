@@ -61,6 +61,8 @@ export const deleteInstance = (id) => api.delete(`/instances/${id}`).then(r => r
 export const cleanInstance = (id) => api.post(`/instances/${id}/clean`).then(r => r.data)
 export const bulkCleanInstances = (ids) =>
   api.post('/instances/bulk-clean', { instance_ids: ids }).then(r => r.data)
+export const reallocateInstance = (id, lineId) => 
+  api.post(`/instances/${id}/reallocate`, { line_id: lineId }).then(r => r.data)
 
 /* ── Billing ── */
 export const getLedger = (params) => api.get('/billing/ledger', { params }).then(r => r.data)
@@ -69,6 +71,11 @@ export const getTenantBalance = (tid) =>
 export const createAdjustment = (tid, data) =>
   api.post(`/billing/adjustment/${tid}`, data).then(r => r.data)
 export const getAdminTenants = () => api.get('/billing/tenants').then(r => r.data)
+
+/* ── Tenants ── */
+export const getTenants = (params) => api.get('/tenants', { params }).then(r => r.data)
+export const setTenantStatus = (id, status) =>
+  api.patch(`/tenants/${id}/status`, { status }).then(r => r.data)
 
 
 /* ── Tariffs ── */
