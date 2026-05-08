@@ -23,7 +23,7 @@ export default function Instances() {
 
   /* ── Create modal ── */
   const [showCreate, setShowCreate]     = useState(false)
-  const [createForm, setCreateForm] = useState({ external_id: '' })
+  const [createForm, setCreateForm] = useState({ external_id: '', token: '' })
   const [createError, setCreateError]   = useState('')
   /* ── /Create modal ── */
 
@@ -170,11 +170,18 @@ export default function Instances() {
           <div className="modal" onClick={e => e.stopPropagation()}>
             <div className="modal-title">Создать инстанс</div>
 
-            <label>External ID</label>
+            <label>External ID</label> 
             <input
               value={createForm.external_id}
               onChange={e => setCreateForm(f => ({ ...f, external_id: e.target.value }))}
               placeholder="ID инстанса у провайдера"
+            />
+            <br />
+            <label>Token</label> 
+            <input
+              value={createForm.token}
+              onChange={e => setCreateForm(f => ({ ...f, token: e.target.value }))}
+              placeholder="Токен инстанса"
             />
 
             {createError && <div className="state-error">{createError}</div>}
