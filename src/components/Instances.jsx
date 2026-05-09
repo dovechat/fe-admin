@@ -31,6 +31,7 @@ export default function Instances() {
   const [reallocTarget, setReallocTarget] = useState(null)   // instance object
   const [reallocLineId, setReallocLineId] = useState('')
   const [reallocError, setReallocError]   = useState('')
+  const [cleaning, setCleaning] = useState(null)
   /* ── /Reallocate modal ── */
 
   const [lines, setLines] = useState([])
@@ -51,8 +52,16 @@ export default function Instances() {
 
   /* ── Actions ── */
   const clean = async (id) => {
-    await cleanInstance(id)
-    load()
+    setCleaning(id)
+    await new Promise(r => setTimeout(r, 0))
+    try {
+      await cleanInstance(id)
+      load()
+    } catch (e) {
+      alert(e?.response?.data?.detail || 'Ошибка')
+    } finally {
+      setCleaning(null)
+    }
   }
 
   const remove = async (id) => {
