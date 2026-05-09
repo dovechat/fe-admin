@@ -57,8 +57,12 @@ export default function Instances() {
 
   const remove = async (id) => {
     if (!confirm('Удалить инстанс?')) return
-    await deleteInstance(id)
-    load()
+    try {
+      await deleteInstance(id)
+      load()
+    } catch (e) {
+      alert(e?.response?.data?.detail || 'Ошибка')
+    }
   }
 
   const submitCreate = async () => {
