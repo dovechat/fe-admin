@@ -76,6 +76,8 @@ export const getAdminTenants = () => api.get('/billing/tenants').then(r => r.dat
 export const getTenants = (params) => api.get('/tenants', { params }).then(r => r.data)
 export const setTenantStatus = (id, status) =>
   api.patch(`/tenants/${id}/status`, { status }).then(r => r.data)
+export const updateTenant = (id, data) =>
+  api.patch(`/tenants/${id}`, data).then(r => r.data)
 
 
 /* ── Tariffs ── */
